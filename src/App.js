@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Game from './Game';
 import './App.css';
 
@@ -7,9 +7,12 @@ import './App.css';
 class App extends Component {
   render() {
     return (
+      <div>
+        <h3>JUAAAANNS OUT</h3>
         <div className="App">
-          <Game/>
+          <Game />
         </div>
+      </div>
     );
   }
 }
