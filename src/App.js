@@ -7,11 +7,8 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div>
-        <h3>JUAAAANNS OUT</h3>
-        <div className="App">
-          <Game />
-        </div>
+      <div className="App">
+        <Game />
       </div>
     );
   }

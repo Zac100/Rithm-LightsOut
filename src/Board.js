@@ -2,31 +2,7 @@ import React, { Component } from 'react';
 import Cell from './Cell';
 import './Board.css';
 
-/** Game board of Lights out.
- *
- * Properties:
- *
- * - nrows: number of rows of board
- * - ncols: number of cols of board
- * - chanceLightStartsOn: float, chance any cell is lit at start of game
- *
- * State:
- *
- * - hasWon: boolean, true when board is all off
- * - board: array-of-arrays of true/false
- *
- *    For this board:
- *       .  .  .
- *       O  O  .     (where . is off, and O is on)
- *       .  .  .
- *
- *    This would be: [[f, f, f], [t, t, f], [f, f, f]]
- *
- *  This should render an HTML table of individual <Cell /> components.
- *
- *  This doesn't handle any clicks --- clicks are on individual cells
- *
- **/
+
 
 class Board extends Component {
   static defaultProps = {
@@ -37,7 +13,7 @@ class Board extends Component {
 
   constructor(props) {
     super(props);
-
+    this.clicks = 0;
     // TODO: set initial state
     this.state = {
       board: this.createBoard(this.props.nrows, this.props.ncols),
@@ -55,7 +31,6 @@ class Board extends Component {
         board[i].push(this.randomBoo());
       }
     }
-    // TODO: create array-of-arrays of true/false values
     return board;
   }
 
@@ -65,6 +40,7 @@ class Board extends Component {
   /** handle changing a cell: update board & determine if winner */
 
   flipCellsAround(coord) {
+    this.clicks++;
     let { ncols, nrows } = this.props;
     let board = this.state.board;
     let [y, x] = coord.split('-').map(Number);
@@ -82,9 +58,7 @@ class Board extends Component {
     flipCell(y + 1, x);
     flipCell(y, x - 1);
     flipCell(y, x + 1);
-    // win when every cell is turned off
-    // TODO: determine is the game has been won
-    // Has won
+    
     this.setState({ board });
 
     if (this.checkWinner(this.state.board)) {
@@ -119,18 +93,14 @@ class Board extends Component {
             ))}
           </tr>
         ));
-    return (
+    return (<>
+      <h1>Score: {this.clicks}</h1>
       <table>
         <tbody>{numCells}</tbody>
       </table>
+      </>
     );
-    // if the game is won, just show a winning msg & render nothing else
-
-    // TODO
-
-    // make table board
-
-    // TODO
+   
   }
 }
 
