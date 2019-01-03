@@ -11,7 +11,7 @@
 
 ## To Start
 
-| Clone the repo and type 'npm i' in terminal to download the dependencies
+| Clone the repo and type 'npm i' in terminal to download the dependencies </br>
 | Type 'npm start' in terminal 
 | Navigate to 'http://localhost:3000/'
 | Play and enjoy!
