@@ -10,10 +10,8 @@
 ---
 
 ## To Start
-
-- Clone the repo and type 'npm i' in terminal to download the dependencies 
-- Type 'npm start' in terminal 
-- Navigate to 'http://localhost:3000/'
+ 
+- Navigate to 'https://gallant-ride-b51fd3.netlify.com/'
 - Play and enjoy!
 
 
